@@ -18,7 +18,7 @@ class Place:
                 worker_number = worker_number - 1
                 print(chosen_worker)
                 ja_uz_nevim =["a", "b"]
-                self.changer.take_card(list_of_free_workers,  worker_number, ja_uz_nevim)
+                self.changer.take_card(list_of_free_workers,  worker_number, ja_uz_nevim, ja_uz_nevim)
             else:
                 print("This choice is invalid.")
         else:

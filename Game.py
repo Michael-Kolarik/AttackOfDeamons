@@ -9,7 +9,7 @@ worker3 = Worker(my_goods,"worker3")
 worker4 = Worker(my_goods,"worker4")
 worker5 = Worker(my_goods,"worker5")
 workers = []
-location = Place ("test", my_goods,workers)
+location = Place ("test", my_goods, workers)
 location.list_workers.append(worker1)
 location.list_workers.append(worker2)
 location.list_workers.append(worker3)
