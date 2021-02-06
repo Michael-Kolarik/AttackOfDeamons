@@ -5,9 +5,9 @@ class Place:
         self.werehouse = werehouse
         self.list_workers = workers
         self.changer = Move
-    def new_worker(self, list_of_free_workers):
+    def new_worker(self):
         n=0
-        for person in list_of_free_workers:
+        for person in self.werehouse.list_of_workers:
             n+=1
             print(n, "  ", person.name)
         print("Choose new worker by number")
@@ -16,14 +16,13 @@ class Place:
             worker_number = int(chosen_worker)
             if worker_number < 6:
                 worker_number = worker_number - 1
-                print(chosen_worker)
-                ja_uz_nevim =["a", "b"]
-                self.changer.take_card(worker_number, ja_uz_nevim, ja_uz_nevim)
+                news = self.werehouse.choosen_worker(worker_number)
+                self.list_workers.append(news)
             else:
                 print("This choice is invalid.")
         else:
             print("This choice is invalid.")
-    def out_worker(self, whouse):
+    def out_worker(self):
         n = 1
         print("Choose worker by number")
         for person in self.werehouse.list_of_workers:
@@ -33,19 +32,20 @@ class Place:
         if chosen_worker in "12345":
             worker_number = int(chosen_worker)
             if worker_number < 6:
-                self.changer.take_card(self.list_workers, whouse.list_of_workers, worker_number, worker_number)
+                worker_number -= 1
+                self.werehouse.workers_decrease(worker_number)
             else:
                 print("This choice is invalid.")
         else:
             print("This choice is invalid.")
-    def turn(self, whouse):
+    def turn(self):
         turn = True
         while turn == True:
             choice = input("If you want add person  press 1, if you want take out person  press 2, if you want end person  press 3")
             if choice == "1":
-                self.new_worker(whouse)
+                self.new_worker()
             elif choice == "2":
-                self.out_worker(whouse)
+                self.out_worker()
             else:
                 turn = False
 
