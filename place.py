@@ -51,9 +51,26 @@ class Place:
                 self.out_worker()
             else:
                 turn = False
-
-
-
+    def work_day(self):
+        if self.__type == "mine":
+            for person in self.list_workers:
+                person.mining()
+        elif self.__type == "forest":
+            for person in self.list_workers:
+                person.felling()
+        elif self.__type == "farm":
+            for person in self.list_workers:
+                person.farming()
+        elif self.__type == "market":
+            for person in self.list_workers:
+                person.trading()
+        elif self.__type == "battlefield":
+            for person in self.list_workers:
+                person.start_battle()
+            for person in self.list_workers:
+                person.battle()
+            for person in self.list_workers:
+                person.find_battle()
 
 
 
